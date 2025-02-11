@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        /* Basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            transition: all 0.6s ease; /* Transition for smooth effect */
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .header-title {
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 48pt;
+            letter-spacing: 2px;
+        }
+
+        /* Main container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            transition: all 0.3s ease;
+        }
+
+        /* TV model */
+        .tv-model img {
+            width: 730px;
+            height: 760px;
+            transition: all 0.3s ease;
+        }
+
+        /* Text content */
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-title {
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 108pt;
+            margin-bottom: 10px;
+        }
+
+        .section-item {
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 80pt;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            padding: 10px;
+            background-color: transparent; /* Make background transparent */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Hover effect for the section items (no background color change, just text color change) */
+        .section-item:hover {
+            color: black;
+        }
+
+        /* Change header and tv asset when hovering */
+        .inverted {
+            background-color: white;
+            color: black;
+        }
+
+        .inverted .header-title {
+            content: "SAINT"; /* Change SWORD to SAINT */
+            color: black;
+        }
+
+        .inverted .tv-model img {
+            content: url('asset/baseinverse/tvinverse.png'); /* Change TV model on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">SWORD</h1>
+    </header>
+    <div class="container">
+        <div class="tv-model">
+            <img src="assets/base/tv.png" alt="3D TV Model">
+        </div>
+        <div class="text-content">
+            <a href="artwork.html" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ARTWORK</a>
+            <a href="aboutme.html" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ABOUT</a>
+            <a href="extra.html" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">EXTRA</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle the inversion effect
+        function invertSite(isHovering) {
+            const body = document.body;
+            const header = document.querySelector('header');
+            const tvModel = document.querySelector('.tv-model img');
+
+            if (isHovering) {
+                body.classList.add('inverted');
+                header.querySelector('.header-title').textContent = 'SAINT'; // Change header text
+                tvModel.src = 'assets/baseinverse/tvinverse.png'; // Change TV model
+            } else {
+                body.classList.remove('inverted');
+                header.querySelector('.header-title').textContent = 'SWORD'; // Reset header text
+                tvModel.src = 'assets/base/tv.png'; // Reset TV model
+            }
+        }
+    </script>
+</body>
+</html>

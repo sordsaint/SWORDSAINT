@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: gray;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        header img {
+            width: 400px;
+        }
+
+        canvas {
+            display: block;
+            margin-top: 20px;
+        }
+
+        #ascii {
+            font-family: monospace;
+            white-space: pre;
+            line-height: 10px;
+            font-size: 8px;
+            color: white;
+            background: black;
+            padding: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">SWORD</div>
+
+    <header>
+        <img src="assets/artwork/arcade.png" alt="Pixel Arcade">
+    </header>
+
+    <div id="ascii">Loading camera...</div>
+
+    <footer>
+        ©2025, SWORDSAINT LLC
+    </footer>
+
+    <script>
+        // Back button hover behavior
+        const backButton = document.getElementById("backButton");
+
+        backButton.addEventListener("mouseover", () => {
+            backButton.textContent = "SAINT";
+        });
+
+        backButton.addEventListener("mouseout", () => {
+            backButton.textContent = "SWORD";
+        });
+
+        backButton.addEventListener("click", () => {
+            window.history.back(); // Go back to the previous page
+        });
+
+        const asciiDiv = document.getElementById("ascii");
+
+        const video = document.createElement("video");
+        video.autoplay = true;
+        video.width = 80;
+        video.height = 60;
+
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const asciiChars = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", ".", " "];
+
+        async function initCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+
+                video.addEventListener("loadeddata", () => {
+                    canvas.width = video.width;
+                    canvas.height = video.height;
+
+                    setInterval(() => {
+                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+                        let asciiArt = "";
+
+                        for (let y = 0; y < canvas.height; y += 2) {
+                            for (let x = 0; x < canvas.width; x++) {
+                                const offset = (y * canvas.width + x) * 4;
+                                const r = imageData.data[offset];
+                                const g = imageData.data[offset + 1];
+                                const b = imageData.data[offset + 2];
+                                const brightness = (r + g + b) / 3;
+                                const charIndex = Math.floor((brightness / 255) * (asciiChars.length - 1));
+                                asciiArt += asciiChars[charIndex];
+                            }
+                            asciiArt += "\n";
+                        }
+
+                        asciiDiv.textContent = asciiArt;
+                    }, 50);
+                });
+            } catch (error) {
+                asciiDiv.textContent = "Error accessing camera: " + error.message;
+            }
+        }
+
+        initCamera();
+    </script>
+</body>
+</html>

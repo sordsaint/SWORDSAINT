@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: gray;
+        }
+
+        /* Header Image */
+        .header-image {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Food Sections */
+        .food-section {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .food-section img {
+            width: 200px;
+            height: auto;
+            margin-right: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+
+        .food-section p {
+            font-size: 14pt;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            font-size: 12pt;
+            color: gray;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">SWORD</div>
+
+    <!-- Header Image -->
+    <img src="assets/artwork/food.png" alt="Food Header" class="header-image">
+
+    <!-- Pizza Section -->
+    <div class="food-section">
+        <img src="assets/artwork/pizza.png" alt="Pepperoni & Bacon Pizza">
+        <p>
+            <strong>Pepperoni & Bacon Pizza</strong><br>
+            One of my favorite kinds of pizza. Not to be that guy that eats frozen pizza 
+            (I love frozen pizza) but I really love Lil Yachty's pepperoni & bacon pizza 
+            that was a limited edition exclusive Walmart item. Unfortunately, they no longer sell it, 
+            and I'm super sad about it.
+        </p>
+    </div>
+
+    <!-- Chicken and Rice Section -->
+    <div class="food-section">
+        <img src="assets/artwork/rice.png" alt="Chicken and Rice">
+        <p>
+            <strong>Chicken and Rice</strong><br>
+            I LOVE chicken and rice. Now I have the means to make really good chicken and rice, but 
+            when I was a kid, I grew up really poor. When my grandma first got custody of me, she 
+            would make me frozen chicken nuggets cut up in rice. For years that was my favorite meal, 
+            and even now, at 18, I still will make frozen chicken nuggets cut up in rice just as a way 
+            to honor my grandma. R.I.P Jean, I love you grandma.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        ©2025, SWORDSAINT LLC
+    </footer>
+
+    <script>
+        // Back button hover behavior
+        const backButton = document.getElementById("backButton");
+
+        backButton.addEventListener("mouseover", () => {
+            backButton.textContent = "SAINT";
+        });
+
+        backButton.addEventListener("mouseout", () => {
+            backButton.textContent = "SWORD";
+        });
+
+        backButton.addEventListener("click", () => {
+            window.history.back(); // Go back to the previous page
+        });
+    </script>
+</body>
+</html>

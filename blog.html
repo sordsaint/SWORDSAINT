@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: gray;
+        }
+
+        /* Header Image */
+        .header-image {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Blog Posts */
+        .blog-post {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 30px;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+
+        .blog-post h2 {
+            font-size: 18pt;
+            margin-bottom: 10px;
+        }
+
+        .blog-post p {
+            font-size: 14pt;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            font-size: 12pt;
+            color: gray;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">SWORD</div>
+
+    <!-- Header Image -->
+    <img src="assets/artwork/blog.png" alt="Blog Header" class="header-image">
+
+    <!-- Blog Posts -->
+    <div class="blog-post">
+        <h2>My wife loves taco bell.. a lot. (Feb 10, 2025)</h2>
+        <p>
+            My wife got really hungry today and we decided to order taco bell. She ordered a crunch wrap supreme and I got a chicken quesadilla.
+            As im eating I hear a sweet "I love you" from my wife. I say it back as one does and when I look up and she has her face completely paused
+            staring at me with a crunch wrap supreme in her mouth.. she was talking about the food. I love her so much.
+        </p>
+    </div>
+
+    <div class="blog-post">
+        <h2>Pixel Art Project Update (Feb 10, 2025)</h2>
+        <p>
+            I am adding a pixel arcade page to the extra page. Go now and check out what games you could play.
+        </p>
+    </div>
+
+    <div class="blog-post">
+        <h2>First Post (Feb 9, 2025)</h2>
+        <p>
+            Hello! I'll keep the first post short and simple. I plan on updating this blog regularly with my latest projects, silly little stuff I wanna share,
+            and maybe some thoughts on the world. Stay tuned!
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        ©2025, SWORDSAINT LLC
+    </footer>
+
+    <script>
+        // Back button hover behavior
+        const backButton = document.getElementById("backButton");
+
+        backButton.addEventListener("mouseover", () => {
+            backButton.textContent = "SAINT";
+        });
+
+        backButton.addEventListener("mouseout", () => {
+            backButton.textContent = "SWORD";
+        });
+
+        backButton.addEventListener("click", () => {
+            window.history.back(); // Go back to the previous page
+        });
+    </script>
+</body>
+</html>

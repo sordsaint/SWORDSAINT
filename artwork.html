@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: gray;
+        }
+
+        /* Main container */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 80%;
+            margin-top: 80px;
+        }
+
+        /* Navigation Column */
+        .nav-column {
+            margin-right: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .nav-item {
+            font-size: 18pt;
+            font-family: 'GTVCS-Black', sans-serif;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: gray;
+        }
+
+        /* Art container */
+        .art-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 700px;
+        }
+
+        .art-item {
+            width: 300px;
+            height: auto;
+            border: 2px solid white;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .art-item:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border: 2px solid white;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">SWORD</div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Navigation Column -->
+        <div class="nav-column">
+            <div class="nav-item" onclick="showArt('landscape')">LANDSCAPE</div>
+            <div class="nav-item" onclick="showArt('characters')">CHARACTERS</div>
+            <div class="nav-item" onclick="showArt('sketches')">SKETCHES</div>
+        </div>
+
+        <!-- Art Container -->
+        <div class="art-container" id="artContainer">
+            <!-- Images will be dynamically populated here -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="artModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <img id="modalImage" src="" alt="Enlarged Art">
+        </div>
+    </div>
+
+    <script>
+        // Back button hover behavior
+        const backButton = document.getElementById("backButton");
+
+        backButton.addEventListener("mouseover", () => {
+            backButton.textContent = "SAINT";
+        });
+
+        backButton.addEventListener("mouseout", () => {
+            backButton.textContent = "SWORD";
+        });
+
+        backButton.addEventListener("click", () => {
+            window.history.back(); // Go back to the previous page
+        });
+
+        // Artwork data
+        const artwork = {
+            landscape: [
+                "assets/myart/landscape1.png",
+                "assets/myart/landscape2.png",
+                "assets/myart/landscape3.png"
+            ],
+            characters: [
+                "assets/myart/character1.png",
+                "assets/myart/character2.png",
+                "assets/myart/character3.png"
+            ],
+            sketches: [
+                "assets/myart/sketch1.png"
+            ]
+        };
+
+        // Function to display art based on the category
+        function showArt(category) {
+            const artContainer = document.getElementById("artContainer");
+            artContainer.innerHTML = ""; // Clear current art
+
+            artwork[category].forEach((src) => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = category + " artwork";
+                img.classList.add("art-item");
+                img.addEventListener("click", () => openModal(src)); // Add modal functionality
+                artContainer.appendChild(img);
+            });
+        }
+
+        // Default: Show Landscape Art
+        showArt("landscape");
+
+        // Modal functionality
+        const artModal = document.getElementById("artModal");
+        const modalImage = document.getElementById("modalImage");
+        const closeModal = document.getElementById("closeModal");
+
+        function openModal(src) {
+            modalImage.src = src;
+            artModal.style.display = "flex";
+        }
+
+        closeModal.addEventListener("click", () => {
+            artModal.style.display = "none";
+        });
+
+        // Close modal when clicking outside of the image
+        artModal.addEventListener("click", (e) => {
+            if (e.target === artModal) {
+                artModal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

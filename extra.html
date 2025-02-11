@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: gray;
+        }
+
+        /* Header Links */
+        .header-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-links a {
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .header-links a:hover {
+            color: gray;
+        }
+
+        /* Footer */
+        footer {
+            font-size: 12pt;
+            color: gray;
+            position: absolute;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">SWORD</div>
+
+    <!-- Header Links -->
+    <div class="header-links">
+        <a href="food.html">FOOD</a>
+        <a href="blog.html">BLOG</a>
+        <a href="ps2.html">PS2</a>
+        <a href="randomness.html">ROOM OF RANDOMNESS</a>
+        <a href="arcade.html">ASCAII CAMERA</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        ©2025, SWORDSAINT LLC
+    </footer>
+
+    <script>
+        // Back button hover behavior
+        const backButton = document.getElementById("backButton");
+
+        backButton.addEventListener("mouseover", () => {
+            backButton.textContent = "SAINT";
+        });
+
+        backButton.addEventListener("mouseout", () => {
+            backButton.textContent = "SWORD";
+        });
+
+        backButton.addEventListener("click", () => {
+            window.history.back(); // Go back to the previous page
+        });
+    </script>
+</body>
+</html>

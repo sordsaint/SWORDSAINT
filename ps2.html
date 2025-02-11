@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: gray;
+        }
+
+        /* Header Image */
+        .header-image {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Section Styles */
+        .section {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 30px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+
+        .section h2 {
+            font-family: "PlayStation 2", Arial, sans-serif;
+            font-size: 18pt;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .game {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .game img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border: 2px solid white;
+            border-radius: 8px;
+        }
+
+        .game p {
+            font-size: 14pt;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            font-size: 12pt;
+            color: gray;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">SWORD</div>
+
+    <!-- Header Image -->
+    <img src="assets/artwork/playstation.png" alt="PlayStation 2 Tribute" class="header-image">
+
+    <!-- PS2 History Section -->
+    <div class="section">
+        <h2>The Legacy of the PlayStation 2</h2>
+        <p>
+            The PlayStation 2, released in 2000, became one of the most iconic gaming consoles of all time. Its sleek design, 
+            innovative technology, and expansive game library set the standard for gaming in the early 2000s. With over 
+            155 million units sold worldwide, it remains the best-selling console to date, defining an era of gaming and 
+            becoming a household name for gamers everywhere.
+        </p>
+    </div>
+
+    <!-- PS2 Recommendations Header -->
+    <img src="assets/artwork/rec.png" alt="Recommendations" class="header-image">
+
+    <!-- Game Recommendation -->
+    <div class="section">
+        <div class="game">
+            <img src="https://coverproject.sfo2.cdn.digitaloceanspaces.com/playstation_2/ps2_kingdomhearts_thumb.jpg" alt="Kingdom Hearts">
+            <p>
+                <strong>Kingdom Hearts:</strong> One of the most classic PlayStation 2 games in my opinion. A brilliant fusion 
+                of Disney and Final Fantasy worlds, this game’s epic story and gameplay cemented it as one of the most memorable 
+                experiences of the PS2 era.
+            </p>
+        </div>
+
+        <div class="game">
+            <img src="https://coverproject.sfo2.cdn.digitaloceanspaces.com/playstation_2/ps2_guitarhero3legendsofrock_thumb.jpg" alt="Guitar Hero 3">
+            <p>
+                <strong>Guitar Hero 3: Legends of Rock:</strong> A game that made everyone feel like a rockstar. With its 
+                fantastic tracklist and unforgettable gameplay, Guitar Hero 3 is an all-time PS2 favorite for music and rhythm fans.
+            </p>
+        </div>
+
+        <div class="game">
+            <img src="https://coverproject.sfo2.cdn.digitaloceanspaces.com/playstation_2/ps2_nbastreetvol2_thumb.jpg" alt="NBA Street Vol. 2">
+            <p>
+                <strong>NBA Street Vol. 2:</strong> This game brought style and creativity to basketball gaming. The 
+                arcade-style gameplay and memorable soundtracks made it an essential pick for sports game lovers.
+            </p>
+        </div>
+
+        <div class="game">
+            <img src="https://coverproject.sfo2.cdn.digitaloceanspaces.com/playstation_2/ps2_kuon_thumb.jpg" alt="Kuon">
+            <p>
+                <strong>Kuon:</strong> A survival horror gem that is both eerie and captivating. Unfortunately, the physical 
+                copy of this game is highly expensive. I recommend emulating it to experience this cult classic without breaking 
+                the bank!
+            </p>
+        </div>
+    </div>
+
+    
+    <footer>
+        ©2025, SWORDSAINT LLC
+    </footer>
+
+    <script>
+        // Back button hover effect and functionality
+        const backButton = document.getElementById("backButton");
+
+        backButton.addEventListener("mouseover", () => {
+            backButton.textContent = "SAINT";
+        });
+
+        backButton.addEventListener("mouseout", () => {
+            backButton.textContent = "SWORD";
+        });
+
+        backButton.addEventListener("click", () => {
+            window.history.back(); // Go back to the previous page
+        });
+    </script>
+</body>
+</html>

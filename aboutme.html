@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWORDSAINT</title>
+    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'GTVCS-Black', sans-serif;
+            font-size: 24pt;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: gray;
+        }
+
+        /* Header image */
+        .header-img {
+            margin-top: 50px;
+            width: auto;
+            height: auto;
+            max-width: 80%;
+        }
+
+        /* Paragraph text styling */
+        .paragraph {
+            font-size: 14pt;
+            text-align: center;
+            line-height: 1.5;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        /* Middle images */
+        .middle-img {
+            margin: 20px 0;
+            width: auto;
+            height: auto;
+            max-width: 80%;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            font-size: 12pt;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">SWORD</div>
+
+    <!-- Header Image -->
+    <img src="assets/artwork/header.png" alt="Header" class="header-img">
+
+    <!-- Paragraph Text -->
+    <p class="paragraph" style="font-size: 24pt;">
+        SWORDSAINT is a name dedicated to my incredibly good friend C11.
+        SWORDSAINT is a personal site however the meaning of it is creativity and growth.
+    </p>
+
+    <!-- Middle Image -->
+    <img src="assets/artwork/expect.png" alt="Expect" class="middle-img">
+
+    <!-- Second Paragraph -->
+    <p class="paragraph" style="font-size: 20pt;">
+        As previously said, this site is more of a personal site however depending on the time you're reading this I 
+        want to make this a site that everyone can find use in. I will be posting my artwork as a sort of portfolio 
+        but in the future I plan to add resources and a social aspect.
+    </p>
+
+    <!-- Third Paragraph -->
+    <p class="paragraph">Please have a look around and see what you can find!</p>
+
+    <!-- Discord Header -->
+    <img src="assets/artwork/discord.png" alt="Discord Header" class="middle-img">
+
+    <!-- About Header -->
+    <img src="assets/artwork/about.png" alt="About Header" class="middle-img">
+
+    <!-- Footer -->
+    <footer>
+        ©2025, SWORDSAINT LLC
+    </footer>
+
+    <script>
+        // Back button hover behavior
+        const backButton = document.getElementById("backButton");
+
+        backButton.addEventListener("mouseover", () => {
+            backButton.textContent = "SAINT";
+        });
+
+        backButton.addEventListener("mouseout", () => {
+            backButton.textContent = "SWORD";
+        });
+
+        backButton.addEventListener("click", () => {
+            window.history.back(); // Go back to the previous page
+        });
+    </script>
+</body>
+</html>
