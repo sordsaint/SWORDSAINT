@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWORDSAINT</title>
-    <link rel="shortcut icon" href="assets/artwork/jesus.ico">
     <style>
         /* Basic styling */
         * {
@@ -22,14 +21,14 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            transition: all 0.6s ease; /* Transition for smooth effect */
+            transition: all 0.6s ease;
+            padding: 0 10px; /* Add some padding to prevent overflow on small screens */
         }
 
         /* Header */
         header {
             text-align: center;
             margin-bottom: 40px;
-            transition: all 0.3s ease;
         }
 
         .header-title {
@@ -41,16 +40,17 @@
         /* Main container */
         .container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            width: 80%;
-            transition: all 0.3s ease;
+            width: 100%;
+            flex-direction: column; /* Default layout for smaller screens */
         }
 
         /* TV model */
         .tv-model img {
-            width: 730px;
-            height: 760px;
+            width: 100%;
+            max-width: 730px;
+            height: auto;
             transition: all 0.3s ease;
         }
 
@@ -59,45 +59,42 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .section-title {
-            font-family: 'GTVCS-Black', sans-serif;
-            font-size: 108pt;
-            margin-bottom: 10px;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .section-item {
             font-family: 'GTVCS-Black', sans-serif;
-            font-size: 80pt;
+            font-size: 40pt;
             margin-bottom: 10px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             color: white;
             padding: 10px;
-            background-color: transparent; /* Make background transparent */
-            text-decoration: none; /* Remove underline */
+            background-color: transparent;
         }
 
-        /* Hover effect for the section items (no background color change, just text color change) */
+        /* Hover effect for the section items */
         .section-item:hover {
             color: black;
         }
 
-        /* Change header and tv asset when hovering */
-        .inverted {
-            background-color: white;
-            color: black;
-        }
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row; /* Row layout on larger screens */
+                justify-content: space-between;
+            }
 
-        .inverted .header-title {
-            content: "SAINT"; /* Change SWORD to SAINT */
-            color: black;
-        }
+            .text-content {
+                margin-top: 0;
+                padding-left: 20px;
+            }
 
-        .inverted .tv-model img {
-            content: url('asset/baseinverse/tvinverse.png'); /* Change TV model on hover */
+            .section-item {
+                font-size: 60pt;
+            }
         }
     </style>
 </head>
@@ -110,9 +107,9 @@
             <img src="assets/base/tv.png" alt="3D TV Model">
         </div>
         <div class="text-content">
-            <a href="/artwork" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ARTWORK</a>
-            <a href="/about" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ABOUT</a>
-            <a href="/extra" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">EXTRA</a>
+            <a href="./artwork" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ARTWORK</a>
+            <a href="./aboutme" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ABOUT</a>
+            <a href="./extra" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">EXTRA</a>
         </div>
     </div>
 
