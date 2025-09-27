@@ -23,12 +23,11 @@
       overflow: hidden;
     }
 
-    /* Center container */
     .container {
       text-align: center;
     }
 
-    /* SWORDSAINT intro */
+    /* Intro text */
     #intro {
       font-size: 3rem;
       font-style: italic;
@@ -43,7 +42,7 @@
       transform: translateY(0);
     }
 
-    /* Menu hidden by default */
+    /* Menu (hidden by default) */
     #menu {
       display: none;
       flex-direction: column;
@@ -57,9 +56,18 @@
       color: white;
       text-decoration: underline;
       cursor: pointer;
-      transition: color 0.3s;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
+    /* When visible, animate each link */
+    #menu a.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hover effect */
     #menu a:hover {
       color: #999;
     }
@@ -81,10 +89,19 @@
       const intro = document.getElementById("intro");
       intro.classList.add("visible");
 
-      // Click to reveal menu
+      // Click to reveal menu with animation
       intro.addEventListener("click", () => {
-        intro.style.display = "none"; // Hide title
-        document.getElementById("menu").style.display = "flex"; // Show menu
+        intro.style.display = "none";
+        const menu = document.getElementById("menu");
+        menu.style.display = "flex";
+
+        // Animate each menu link with delay
+        const links = menu.querySelectorAll("a");
+        links.forEach((link, index) => {
+          setTimeout(() => {
+            link.classList.add("show");
+          }, index * 400); // delay each item by 0.4s
+        });
       });
     });
   </script>
