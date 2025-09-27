@@ -1,135 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWORDSAINT</title>
-    <style>
-        /* Basic styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWORDSAINT</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            transition: all 0.6s ease;
-            padding: 0 10px; /* Add some padding to prevent overflow on small screens */
-        }
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-        /* Header */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    /* Center container */
+    .container {
+      text-align: center;
+    }
 
-        .header-title {
-            font-family: 'GTVCS-Black', sans-serif;
-            font-size: 48pt;
-            letter-spacing: 2px;
-        }
+    /* SWORDSAINT intro */
+    #intro {
+      font-size: 3rem;
+      font-style: italic;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+      cursor: pointer;
+    }
 
-        /* Main container */
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            flex-direction: column; /* Default layout for smaller screens */
-        }
+    #intro.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        /* TV model */
-        .tv-model img {
-            width: 100%;
-            max-width: 730px;
-            height: auto;
-            transition: all 0.3s ease;
-        }
+    /* Menu hidden by default */
+    #menu {
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      font-size: 2rem;
+      font-style: italic;
+      margin-top: 20px;
+    }
 
-        /* Text content */
-        .text-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
+    #menu a {
+      color: white;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-        .section-item {
-            font-family: 'GTVCS-Black', sans-serif;
-            font-size: 40pt;
-            margin-bottom: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: white;
-            padding: 10px;
-            background-color: transparent;
-        }
-
-        /* Hover effect for the section items */
-        .section-item:hover {
-            color: black;
-        }
-
-        /* Responsive adjustments for larger screens */
-        @media (min-width: 768px) {
-            .container {
-                flex-direction: row; /* Row layout on larger screens */
-                justify-content: space-between;
-            }
-
-            .text-content {
-                margin-top: 0;
-                padding-left: 20px;
-            }
-
-            .section-item {
-                font-size: 60pt;
-            }
-        }
-    </style>
+    #menu a:hover {
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1 class="header-title">SWORD</h1>
-    </header>
-    <div class="container">
-        <div class="tv-model">
-            <img src="assets/base/tv.png" alt="3D TV Model">
-        </div>
-        <div class="text-content">
-            <a href="/artwork" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ARTWORK</a>
-            <a href="/about" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">ABOUT</a>
-            <a href="/extra" class="section-item" onmouseover="invertSite(true)" onmouseout="invertSite(false)">EXTRA</a>
-        </div>
+  <div class="container">
+    <div id="intro">SWORDSAINT</div>
+    <div id="menu">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#links">Links</a>
+      <a href="#about">About Me</a>
     </div>
+  </div>
 
-    <script>
-        // JavaScript to toggle the inversion effect
-        function invertSite(isHovering) {
-            const body = document.body;
-            const header = document.querySelector('header');
-            const tvModel = document.querySelector('.tv-model img');
+  <script>
+    // Fade in intro text
+    window.addEventListener("load", () => {
+      const intro = document.getElementById("intro");
+      intro.classList.add("visible");
 
-            if (isHovering) {
-                body.classList.add('inverted');
-                header.querySelector('.header-title').textContent = 'SAINT'; // Change header text
-                tvModel.src = 'assets/baseinverse/tvinverse.png'; // Change TV model
-            } else {
-                body.classList.remove('inverted');
-                header.querySelector('.header-title').textContent = 'SWORD'; // Reset header text
-                tvModel.src = 'assets/base/tv.png'; // Reset TV model
-            }
-        }
-    </script>
+      // Click to reveal menu
+      intro.addEventListener("click", () => {
+        intro.style.display = "none"; // Hide title
+        document.getElementById("menu").style.display = "flex"; // Show menu
+      });
+    });
+  </script>
 </body>
 </html>
